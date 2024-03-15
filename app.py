@@ -48,3 +48,4 @@ if st.button("Detect palm trees", disabled=(image_file is None)):
         analysis_image = analyze_image(image_file)
         st.image(analysis_image)
 
+# Finished
