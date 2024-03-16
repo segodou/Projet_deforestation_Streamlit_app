@@ -14,8 +14,11 @@ if platform.system() == "Windows":
     pathlib.PosixPath = pathlib.WindowsPath
     classification_model = load_learner('models/palmoil_fastai_resnet18.pth')
     pathlib.PosixPath = _saved_hack
-else : 
+else :
+    _saved_hack = pathlib.WindowsPath
+    pathlib.WindowsPath = pathlib.PosixPath
     classification_model = load_learner('models/palmoil_fastai_resnet18.pth')
+    pathlib.WindowsPath = _saved_hack
 
 
 def classify_image(image) -> bool:
